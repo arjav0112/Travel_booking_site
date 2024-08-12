@@ -1,0 +1,46 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <br>
+            <h2>List your travel site</h2>
+            <form method="post" action="/listing" enctype="multipart/form-data" class="needs-validation" novalidate>
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input class="form-control" placeholder = "Add a catchy Title" name = "title" required>
+                    <div class="invalid-feedback">Please Enter Title</div>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea class="form-control" name = "description" required></textarea>
+                    <div class="invalid-feedback">Please Enter Description</div>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Uplaod Image</label>
+                    <input type = "file" name = "image" class="form-control">
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label">Price</label>
+                        <input class="form-control" type="number" placeholder = "1200" name = "price" required>
+                        <div class="invalid-feedback">Please Enter A valid Price</div>
+                    </div>
+                    <div class="mb-3 col-md-8">
+                        <label for="country" class="form-label">Country</label>
+                        <input placeholder = "INDIA" name = "country" class="form-control" required>
+                        <div class="invalid-feedback">Please Enter Country</div>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input placeholder = "Rohini,Delhi" name = "location" class="form-control" required>
+                    <div class="invalid-feedback">Please Enter Location</div>
+                </div>
+                
+                <button class="btn btn-dark" type="submit">ADD</button>
+            </form>
+        </div>
+    </div>
+</body>

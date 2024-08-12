@@ -1,0 +1,36 @@
+img{
+    height: 500px;
+    width: 1000px;
+    border-radius: 2rem;
+}
+
+.container{
+    text-align : center;
+    padding-bottom:3rem;
+}
+
+.heading{
+    display: flex;
+}
+
+button{
+    margin-left: 1rem;
+}
+
+.btns{
+    display: flex;
+    
+   width: 60%;
+   justify-content: center;
+}
+
+a{
+    text-decoration: none;
+    color:black;
+}
+
+.title{
+    width:40%;
+    font-size: 2rem;
+    margin-left: 18rem;
+}

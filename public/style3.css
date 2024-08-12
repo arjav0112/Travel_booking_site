@@ -1,0 +1,108 @@
+body{
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    display: flex;
+    flex-direction:column;
+    min-height: 100vh;
+}
+
+.box{
+    flex:1;
+}
+
+.navbar{
+    height: 5rem;
+    width :100%;
+    background-color: white;
+}
+.signin {
+    display: flex;
+    margin-right: 1rem;
+    border: 3px solid black;
+    padding-left :1rem;
+    border-radius: 1rem;
+    
+}
+.signup,.login {
+    margin-right: 1rem;
+    font-weight : 800;
+}
+
+.fa-airbnb{
+    font-size:2rem;
+    color: #fe424d;
+}
+
+.navbar-nav{
+    background-color: white;
+}
+/* footer */
+.f-info{
+    background-color: #F7F7F7;
+    height : 8rem;
+    display:flex;
+    flex-wrap: wrap;
+    text-align: center;
+    
+}
+
+.f-social,.f-name,.f-terms{
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.f-social i{
+    margin-right:1rem;
+  font-size:1.25rem;
+}
+
+.f-info .f-social a{
+    text-decoration: none !important;
+    color: black;
+}
+
+.privacy,.term{
+    text-decoration: none;
+    color:black;
+}
+
+.f-terms a:hover{
+    text-decoration: underline;
+}
+
+/* Error Page */
+
+.f-error{
+    align-items: center;
+    display: flex;
+    margin-left: 35rem; 
+    justify-content: center;
+    margin-top: 10rem;
+    width: 400px;
+   
+}
+
+.err-status{
+    align-items: center;
+    font-size: 7rem;
+    font-weight: 600;
+    color:black !important;
+
+}
+.err-msg{
+    align-items: center;
+    font-size: 2rem;
+    color: black !important
+}
+
+.preview_img{
+    height: 150px !important;
+    width: 250px !important;
+}
+
+/* map  */
+#map {
+    height: 150px ;
+    width: 250px ;  
+}

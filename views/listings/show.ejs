@@ -1,0 +1,103 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <link rel="stylesheet" href="/style1.css">
+    <div class="heading">
+        <div class="title">
+            <h3><%=list.title%></h3>
+        </div>
+        <%if(users && users._id.equals(list.owner._id)){%>
+        <div class="btns">
+            <form method="GET" action="/listing/<%=list["_id"]%>/edit">
+                <button class="btn btn-primary">Edit</button>
+            </form>
+            <form method="POST" action="/listing/<%=list["_id"]%>?_method=DELETE">
+                <button class="btn btn-danger">DELETE</button>
+            </form>
+        </div>
+        <%}%>
+    </div>
+    <div class="container">
+        
+        <img class=".img1" src="<%=list.image.url%>" alt="img">
+        <br>
+        <br>
+        <div class="show-info">
+            <p>Owned by <%=list.owner.username%></p>
+            <h5><%=list.description%></h5>
+            <p>Price : ₹<%=list.price.toLocaleString("en-IN")%>/night</p>
+            <p>Location: <%=list.location%></p>
+            <p>Country: <%=list.country%></p>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <br>
+            <%if(users){%>
+            <h2>Review This Site</h2>
+            <form method="POST" action="/listing/<%=list["_id"]%>/review" class="needs-validation" novalidate>
+                <div class="mb-3">
+                    <label for="comment" class="form-label">Comment</label>
+                    <textarea class="form-control" placeholder = "Give your Review" name = "comment" required></textarea>
+                    <div class="invalid-feedback">Please Provide a comment</div>
+                </div>
+                <fieldset class="starability-growRotate">
+                    
+                    <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="1" checked aria-label="No rating." />
+                    <input type="radio" id="first-rate1" name="rating" value="1" />
+                    <label for="first-rate1" title="Terrible">1 star</label>
+                    <input type="radio" id="first-rate2" name="rating" value="2" />
+                    <label for="first-rate2" title="Not good">2 stars</label>
+                    <input type="radio" id="first-rate3" name="rating" value="3" />
+                    <label for="first-rate3" title="Average">3 stars</label>
+                    <input type="radio" id="first-rate4" name="rating" value="4" />
+                    <label for="first-rate4" title="Very good">4 stars</label>
+                    <input type="radio" id="first-rate5" name="rating" value="5" />
+                    <label for="first-rate5" title="Amazing">5 stars</label>
+                  </fieldset>
+                 <br>
+                <button class="btn btn-dark" type="submit">ADD</button>
+            </form>
+            <%}%>
+            <hr>
+           <% if(list.review.length > 0){%>
+    <p><b>All Reviews</b></p>
+    <div class="row">
+    <%for(let review of list.review){%>
+        
+        <div class="card col-5 ms-3 mb-3">
+          <div class="card-body">
+            <h5 class="card-title">@<%=review.author.username%></h5>
+            <p class="starability-result card-text" data-rating="<%=review.rating%>"></p>
+            <p class="card-text"><%=review.comment%></p>
+          </div>
+          <%if(users && review.author._id.equals(users["_id"])){%>
+          <form method="POST" class="mb-3" action="/listing/<%=list["_id"]%>/review/<%=review["_id"]%>?_method=DELETE">
+          <button class="btn btn-sm btn-dark">Delete</button>
+          </form>
+          <%}%>
+        </div>
+     <%}%> 
+     </div>  
+        </div>
+        <%}%>
+        <!-- <div class="col-8 offset-2">
+            <h3>Where You will be</h3>
+            <div id="map"></div>
+        </div> -->
+      
+    </div>
+    <!-- <script>
+        // TO MAKE THE MAP APPEAR YOU MUST
+        // ADD YOUR ACCESS TOKEN FROM
+        // https://account.mapbox.com
+        let mapToken = "//map token";
+        console.log(mapToken);
+        mapboxgl.accessToken = mapToken;
+        const map = new mapboxgl.Map({
+            container: 'map', // container ID
+            center: [-74.5, 40], // starting position [lng, lat]. Note that lat must be set between -90 and 90
+            zoom: 9 // starting zoom
+        });
+    </script> -->
+</body>
