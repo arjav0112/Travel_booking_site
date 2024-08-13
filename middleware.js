@@ -4,7 +4,7 @@ const { listingSchema , reviewSchema } = require("./schema.js");
 const ExpressError = require("./utils/ExpressError.js");
 
 module.exports.isLoggedin = (req,res,next)=>{
-   // console.log(req.session);
+    console.log(req.session);
     if(!req.isAuthenticated()) {
         req.session.SaveUrl = req.originalUrl;
         req.flash("error","You must be logged in");

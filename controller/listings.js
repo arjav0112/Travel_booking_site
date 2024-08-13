@@ -20,7 +20,7 @@ module.exports.renderEditpage = async (req,res)=>{
 
     let originalImage = list.image.url;
     originalImage = originalImage.replace("/upload","/upload/w_250");
-    // console.log(originalImage)
+    console.log(originalImage)
     // console.log(list);
     res.render("listings/edit.ejs",{list,originalImage});
 };
@@ -51,7 +51,7 @@ module.exports.updateListing = async (req,res)=>{
     if(req.file){
         let url = req.file.path;
         let filename = req.file.filename;
-       // console.log(req.file);
+        console.log(req.file);
         list.image = {url , filename};
         await list.save();
     }
