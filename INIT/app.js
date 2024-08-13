@@ -4,10 +4,11 @@ const mongoose = require("mongoose");
 const List = require("../models/listing.js");
 const initdata = require("./data.js");
 
+const dbUrl = process.env.ATLAS_URL;
 main().then(()=>{console.log("connection spotted")}).catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/travel');
+  await mongoose.connect("mongodb+srv://Arjav:cUDoqicYgOumTLaD@cluster0.g43to.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
 }
 
 const initDB = async () =>{
