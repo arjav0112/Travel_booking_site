@@ -8,7 +8,7 @@ const dbUrl = process.env.ATLAS_URL;
 main().then(()=>{console.log("connection spotted")}).catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect("mongodb+srv://Arjav:cUDoqicYgOumTLaD@cluster0.g43to.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
+  await mongoose.connect(dbUrl);
 }
 
 const initDB = async () =>{
