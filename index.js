@@ -10,7 +10,7 @@ const path = require("path");
 const methodOverride = require('method-override');
 const ejsmate = require("ejs-mate");
 const session = require("express-session");
-const MongoStore = require('connect-mongo');
+
 const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
@@ -37,7 +37,7 @@ main().then(()=>{console.log("connection spotted")}).catch(err => console.log(er
 async function main() {
   await mongoose.connect(dbUrl);
 }
-
+const MongoStore = require('connect-mongo');
 const store = MongoStore.create({
   mongoUrl: dbUrl,
   crypto: {
